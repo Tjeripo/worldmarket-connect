@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    ports: ['4000:4000']
+    environment:
+      - NODE_ENV=development
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
